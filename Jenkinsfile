@@ -9,7 +9,7 @@ pipeline {
  stages {
  stage('Cloning Git') {
  steps {
- git 'https://github.com/rajlocuz/poc-ca.git'
+ git 'https://github.com/rajlocuz/terraform-docker.git'
  }
  }
  stage('Building Docker Image') {
