@@ -1,8 +1,10 @@
 pipeline {
  environment {
+  //uncomment line 4 & 5 for Docker Hub
   registry = "rajlocuz/poc-ca"
-  registry = "poc-ca"
   registryCredential = 'rajlocuz-dockerhub'
+  //uncomment line 6 (registry) for ECR
+  //registry = "poc-ca"
  dockerImage = ''
  }
  agent any
