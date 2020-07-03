@@ -1,8 +1,8 @@
 pipeline {
  environment {
- //registry = "rajlocuz/poc-ca"
+  registry = "rajlocuz/poc-ca"
   registry = "poc-ca"
- //registryCredential = 'rajlocuz-dockerhub'
+  registryCredential = 'rajlocuz-dockerhub'
  dockerImage = ''
  }
  agent any
