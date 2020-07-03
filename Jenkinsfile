@@ -20,15 +20,18 @@ pipeline {
  }
  }
  }
- /*stage('Push Image to Docker Hub') {
+  //Push to Docker Hub - Start
+ stage('Push Image to Docker Hub') {
  steps{
  script {
  docker.withRegistry( '', registryCredential ) {
  dockerImage.push()
  dockerImage.push('latest')
  }}
- }}*/
-  stage('Push to ECR') {
+ }}
+  //Push to Docker hub - End
+  //Push to ECR - Start
+  /*stage('Push to ECR') {
    steps{
     script {
   docker.withRegistry('https://159254558323.dkr.ecr.ap-south-1.amazonaws.com', 'ecr:ap-south-1:AWS-raj-singh-admin') {
@@ -38,6 +41,7 @@ pipeline {
   }
     }
    }
-  }
+  }*/
+  //Push to ECR - End
  }
 }
