@@ -12,9 +12,9 @@ apt-get install wget -y && \
 # vim
 apt-get install vim -y && \
 #sshpass
-apt-get install sshpass -y \
+apt-get install sshpass -y && \
 #rsyslog
-apt-get install rsyslog
+apt-get install rsyslog -y
 
 ################################
 # Install Terraform
