@@ -16,9 +16,8 @@ echo ""
 read -r -p "Please Confirm to run the script Y or N : " confirm
 echo ""
 service rsyslog restart
-echo $?
-read syslog-stats
-if [ "$syslog-stats" == 0]; then
+
+#if [ "echo $?" = "0" ]; then
 		
 	#echo "$confirm"
 	if [ "$confirm" = "y" ] || [ "$confirm" = "Y" ]; then
@@ -30,7 +29,7 @@ if [ "$syslog-stats" == 0]; then
         	logger $DEST_IP:$USERNAME had denied the operation
 		echo "Sorry! Exiting now..."
 	fi
-else
-	echo "Syslog client not working properly"
-fi
+#else
+#	echo "Syslog client not working properly"
+#fi
 
