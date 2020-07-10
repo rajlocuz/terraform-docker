@@ -15,15 +15,22 @@ echo ""
 #echo "Please Confirm Y or N : "
 read -r -p "Please Confirm to run the script Y or N : " confirm
 echo ""
-#echo "$confirm"
-if [ "$confirm" = "y" ] || [ "$confirm" = "Y" ]; then
-        echo "Got confirmation! Script is running now......"
-        sshpass -e scp -o StrictHostKeyChecking=no /work/test.py $USERNAME@$DEST_IP:/home/$USERNAME
-	logger File has been copied to $DEST_IP:/home/$USERNAME directory
-        echo "Your task has been completed. Your file has been copied to $DEST_IP:/home/$USERNAME directory"
+service rsyslog restart
+echo $?
+read syslog-stats
+if [ "$syslog-stats" == 0]; then
+		
+	#echo "$confirm"
+	if [ "$confirm" = "y" ] || [ "$confirm" = "Y" ]; then
+        	echo "Got confirmation! Script is running now......"
+        	sshpass -e scp -o StrictHostKeyChecking=no /work/test.py $USERNAME@$DEST_IP:/home/$USERNAME
+		logger File has been copied to $DEST_IP:/home/$USERNAME directory
+        	echo "Your task has been completed. Your file has been copied to $DEST_IP:/home/$USERNAME directory"
+	else
+        	logger $DEST_IP:$USERNAME had denied the operation
+		echo "Sorry! Exiting now..."
+	fi
 else
-        logger $DEST_IP:$USERNAME had denied the operation
-	echo "Sorry! Exiting now..."
+	echo "Syslog client not working properly"
 fi
-
 
