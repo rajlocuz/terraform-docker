@@ -19,7 +19,7 @@ echo ""
 if [ "$confirm" = "y" ] || [ "$confirm" = "Y" ]; then
         echo "Got confirmation! Script is running now......"
         sshpass -e scp -o StrictHostKeyChecking=no /work/test.py $USERNAME@$DEST_IP:/home/$USERNAME
-        echo "Your task has been completed."
+        echo "Your task has been completed. Your file has been copied to $DEST_IP:/home/$USERNAME directory"
 else
         echo "Sorry! Exiting now..."
 fi

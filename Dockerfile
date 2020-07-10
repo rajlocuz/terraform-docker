@@ -12,7 +12,9 @@ apt-get install wget -y && \
 # vim
 apt-get install vim -y && \
 #sshpass
-apt-get install sshpass -y
+apt-get install sshpass -y \
+#rsyslog
+apt-get install rsyslog
 
 ################################
 # Install Terraform
@@ -46,6 +48,13 @@ RUN pip install awscli --upgrade --user
 
 # add aws cli location to path
 ENV PATH=~/.local/bin:$PATH
+
+###############################
+#Config and start rsyslog server
+###############################
+RUN mv /etc/rsyslog.conf /etc/rsyslog.conf.bak
+ADD rsyslog.conf /etc
+RUN service rsyslog restart
 
 # Adds local templates directory and contents in /usr/local/terrafrom-templates
 #ADD templates /usr/local/bin/templates
