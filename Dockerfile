@@ -16,6 +16,8 @@ apt-get install sshpass -y && \
 #rsyslog
 apt-get install rsyslog -y
 
+RUN service rsyslog start
+
 ################################
 # Install Terraform
 ################################

@@ -15,7 +15,7 @@ echo ""
 #echo "Please Confirm Y or N : "
 read -r -p "Please Confirm to run the script Y or N : " confirm
 echo ""
-service rsyslog restart
+#service rsyslog restart
 
 #if [ "echo $?" = "0" ]; then
 		
