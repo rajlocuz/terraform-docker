@@ -68,6 +68,8 @@ ADD test.py /work
 
 WORKDIR /work
 
+EXPOSE 514
+
 ENTRYPOINT ["bash", "/work/deploy.sh"]   
 
 #RUN mkdir ~/.aws && touch ~/.aws/credentials
